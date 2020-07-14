@@ -1,0 +1,24 @@
+/**
+ * _mixins.scss
+ * 미디어 쿼리에 사용되는 mixin을 미리 지정해 놓고, 다른 파일에서 사용할 수 있습니다.
+ */
+
+@import './variables.scss';
+
+@mixin mobile {
+  @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}

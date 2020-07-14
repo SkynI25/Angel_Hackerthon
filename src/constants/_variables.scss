@@ -1,0 +1,52 @@
+/**
+ * _variables.scss
+ * color, font size, media query에 사용되는 상수들을 정의합니다
+ */
+
+// colors
+$colors: (
+  'forest': #239f28,
+  'aqua': #186eef,
+  'ruby': #c93939,
+  'zing': #20cac3,
+  'carrot': #e9853e,
+  'grape': #7542f2,
+  'midnight': #433f5c,
+  'slate': #657786,
+);
+
+$shades: (
+  'shade-0': #ffffff,
+  'shade-1': #f5f5f5,
+  'shade-2': #d8d8d8,
+  'shade-3': #bbbbbb,
+  'shade-4': #979797,
+  'shade-5': #535353,
+  'shade-6': #0c0c0c,
+);
+
+$theme: (
+  'bg-color': map-get($shades, 'shade-1'),
+  'border-color': map-get($shades, 'shade-2'),
+  'border-dark-color': map-get($shades, 'shade-3'),
+  'text-color': map-get($shades, 'shade-6'),
+  'muted': map-get($colors, 'slate'),
+  'subtle': map-get($shades, 'shade-4'),
+);
+
+// font size
+$font-size: (
+  'font-4xl': 2rem,
+  'font-3xl': 1.8rem,
+  'font-2xl': 1.6rem,
+  'font-xl': 1.4rem,
+  'font-lg': 1.2rem,
+  'font-md': 1rem,
+  'font-sm': 0.9rem,
+  'font-xs': 0.8rem,
+);
+
+// media query
+$breakpoint-mobile: 335px;
+$breakpoint-tablet: 758px;
+$breakpoint-desktop: 1024px;

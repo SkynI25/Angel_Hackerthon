@@ -1,0 +1,43 @@
+@import '../../constants/mixins.scss';
+
+.header {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-color);
+
+  .header-inner {
+    padding: 0 0.5rem;
+    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  @include mobile {
+    .header-inner {
+      max-width: 100%;
+    }
+  }
+  @include tablet {
+    .header-inner {
+      max-width: var(--tablet);
+    }
+  }
+  @include desktop {
+    .header-inner {
+      max-width: var(--desktop);
+    }
+  }
+
+  .gnb {
+    ul {
+      list-style: none;
+      display: flex;
+
+      li {
+        display: inline-block;
+        margin-left: 1rem;
+      }
+    }
+  }
+}
