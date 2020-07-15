@@ -3,6 +3,7 @@
 .header {
   padding: 1.25rem 0;
   border-bottom: 1px solid var(--border-color);
+  z-index: 1;
 
   .header-inner {
     padding: 0 0.5rem;

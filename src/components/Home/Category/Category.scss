@@ -1,0 +1,39 @@
+@import '../../../constants/mixins.scss';
+
+.category-container {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+
+  h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .carousel {
+    position: relative;
+  }
+
+  .back-btn,
+  .next-btn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 2rem;
+    appearance: none;
+    outline: 0;
+    border: 1px solid var(--border-dark-color);
+    background-color: var(--bg-color);
+    position: absolute;
+    top: calc(50% - 1rem);
+
+    @include mobile {
+      & {
+        display: none;
+      }
+    }
+  }
+  .back-btn {
+    left: -3rem;
+  }
+  .next-btn {
+    right: -3rem;
+  }
+}
