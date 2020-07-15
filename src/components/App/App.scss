@@ -71,7 +71,7 @@ a {
     --#{$name}: #{$size};
   }
 
-  $primary: map-get($colors, 'grape');
+  $primary: map-get($colors, 'ruby');
   --primary: #{$primary};
   --primary-dark: #{darken($primary, 10%)};
   --primary-darker: #{darken($primary, 20%)};

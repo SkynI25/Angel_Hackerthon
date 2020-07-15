@@ -1,0 +1,17 @@
+@import '../../constants/mixins.scss';
+
+@include mobile {
+  .home-container {
+    padding: 0.5rem;
+  }
+}
+@include tablet {
+  .home-container {
+    padding: 0;
+  }
+}
+@include desktop {
+  .home-container {
+    padding: 0;
+  }
+}
