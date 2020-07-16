@@ -1,0 +1,18 @@
+.react-tabs__tab-list {
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.react-tabs__tab {
+  color: var(--text-color);
+  font-size: 1.125rem;
+  border-radius: 0;
+}
+
+.react-tabs__tab--selected {
+  background-color: transparent;
+  font-weight: bold;
+  border: 1px solid transparent;
+  border-bottom: 3px solid var(--text-color);
+}

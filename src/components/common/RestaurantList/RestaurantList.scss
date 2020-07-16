@@ -10,15 +10,22 @@
   .list {
     margin-left: -0.5rem;
     margin-right: -0.5rem;
-    margin-bottom: -1.5rem;
+    margin-bottom: -1rem;
+    @include mobile {
+      & {
+        margin: 0 0.5rem -1rem 0.5rem;
+      }
+    }
 
     .item-container {
       display: inline-flex;
       flex-direction: row;
       width: 50%;
       height: 175px;
-      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
       padding: 0 0.5rem;
+      border-bottom: 1px solid var(--border-color);
 
       @include tablet {
         & {
@@ -52,6 +59,22 @@
         font-size: var(--font-md);
         color: var(--shade-5);
         margin-bottom: 0.3rem;
+      }
+      .star {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 0.25rem;
+        &,
+        * {
+          color: var(--primary);
+        }
+      }
+      .review {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--shade-4);
       }
     }
   }
