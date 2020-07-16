@@ -1,0 +1,11 @@
+@import '../../../constants/mixins.scss';
+
+.banner-container {
+  margin-bottom: 5rem;
+
+  @include mobile {
+    & {
+      margin: 0 -0.5rem;
+    }
+  }
+}

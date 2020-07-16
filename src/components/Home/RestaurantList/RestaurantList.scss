@@ -10,14 +10,16 @@
   .list {
     margin-left: -0.5rem;
     margin-right: -0.5rem;
-    margin-bottom: -1rem;
+    margin-bottom: -1.5rem;
 
     .item-container {
-      display: inline-block;
-      width: 33.33%;
+      display: inline-flex;
+      flex-direction: row;
+      width: 50%;
       height: 175px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       padding: 0 0.5rem;
+
       @include tablet {
         & {
           width: 50%;
@@ -29,16 +31,27 @@
         }
       }
 
-      div {
-        background-color: var(--border-dark-color);
-        width: 100%;
-        height: 100%;
+      .img {
+        width: 10rem;
+        height: 10rem;
+        margin-right: 1rem;
 
         img {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          border-radius: 0.25rem;
         }
+      }
+
+      .title {
+        font-size: var(--font-lg);
+        font-weight: bold;
+      }
+      .description {
+        font-size: var(--font-md);
+        color: var(--shade-5);
+        margin-bottom: 0.3rem;
       }
     }
   }

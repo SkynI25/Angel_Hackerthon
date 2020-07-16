@@ -1,8 +1,7 @@
 @import '../../../constants/mixins.scss';
 
 .category-container {
-  margin-top: 2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 5rem;
 
   h2 {
     margin-bottom: 1.5rem;
@@ -10,6 +9,34 @@
 
   .carousel {
     position: relative;
+  }
+
+  .category-item {
+    padding: 0 1rem;
+    width: 100%;
+    height: 100%;
+    .link {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .img {
+        width: 100%;
+        flex: 1;
+        span {
+          height: 100%;
+          background-color: var(--primary);
+          border-radius: 0.25rem;
+        }
+      }
+      span {
+        display: block;
+        text-align: center;
+      }
+    }
   }
 
   .back-btn,
