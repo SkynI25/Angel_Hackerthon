@@ -1,6 +1,6 @@
-import React from 'react'
-import { signinUser } from '../../lib/api'
-import './SignIn.scss'
+import React from 'react';
+import { signinUser } from '../../lib/api';
+import './SignIn.scss';
 
 const SignIn = () => {
   return (
@@ -14,7 +14,7 @@ const SignIn = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;

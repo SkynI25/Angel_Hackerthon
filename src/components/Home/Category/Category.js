@@ -1,20 +1,32 @@
-import React from 'react'
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel'
-import 'pure-react-carousel/dist/react-carousel.es.css'
-import './Category.scss'
-import { Link } from 'react-router-dom'
-
-const categories = [
-  { text: '카테고리' },
-  { text: '카테고리' },
-  { text: '카테고리' },
-  { text: '카테고리' },
-  { text: '카테고리' },
-  { text: '카테고리' },
-  { text: '카테고리' },
-]
+import React, { useState, useEffect } from 'react';
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+} from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import './Category.scss';
+import { Link } from 'react-router-dom';
+import { getCategories } from '../../../lib/api';
 
 const Category = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    (function () {
+      getCategories()
+        .then((res) => {
+          if (!res.success || !res.data) {
+            throw new Error(res.errors);
+          }
+          setCategories(res.data);
+        })
+        .catch((err) => console.log(err));
+    })();
+  }, []);
+
   return (
     <section className="category-container">
       <h2>어떤 메뉴를 찾으시나요?</h2>
@@ -31,13 +43,13 @@ const Category = () => {
       >
         <Slider>
           {categories.map((i, idx) => (
-            <Slide tabIndex={idx} key={idx}>
+            <Slide tabIndex={idx} key={i.id}>
               <div className="category-item">
-                <Link className="link" to={`/category/${idx}`}>
+                <Link className="link" to={`/category/${i.id}`}>
                   <div className="img">
-                    <span></span>
+                    <img src={i.img} alt={i.category} />
                   </div>
-                  <span>{i.text}</span>
+                  <span>{i.category}</span>
                 </Link>
               </div>
             </Slide>
@@ -47,7 +59,7 @@ const Category = () => {
         <ButtonNext className="next-btn">&#xE001;</ButtonNext>
       </CarouselProvider>
     </section>
-  )
-}
+  );
+};
 
-export default Category
+export default Category;
