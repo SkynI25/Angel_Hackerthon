@@ -1,11 +1,24 @@
-import React from 'react'
-import './App.scss'
-import { Route, BrowserRouter } from 'react-router-dom'
-import { Home, SignIn, SignUp, Restaurant, Category } from '../../pages'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import React, { useEffect, useState } from 'react';
+import './App.scss';
+import { Route, BrowserRouter } from 'react-router-dom';
+import { Home, SignIn, SignUp, Restaurant, Category } from '../../pages';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import { userInfo } from '../../lib/api';
 
-function App() {
+const App = () => {
+  const [userData, setUserData] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        // const response = await userInfo(JSON.parse(token));
+        // const { data } = response.data;
+        // setUserData(data);
+      } catch {}
+    };
+    fetchData();
+  }, []);
   return (
     <BrowserRouter>
       <div className="App">
@@ -20,7 +33,7 @@ function App() {
         <Footer />
       </div>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default App
+export default App;

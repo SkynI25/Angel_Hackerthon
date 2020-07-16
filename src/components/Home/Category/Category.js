@@ -1,8 +1,14 @@
-import React from 'react'
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel'
-import 'pure-react-carousel/dist/react-carousel.es.css'
-import './Category.scss'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import {
+  CarouselProvider,
+  Slider,
+  Slide,
+  ButtonBack,
+  ButtonNext,
+} from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import './Category.scss';
+import { Link } from 'react-router-dom';
 
 const categories = [
   { text: '카테고리' },
@@ -12,7 +18,7 @@ const categories = [
   { text: '카테고리' },
   { text: '카테고리' },
   { text: '카테고리' },
-]
+];
 
 const Category = () => {
   return (
@@ -47,7 +53,7 @@ const Category = () => {
         <ButtonNext className="next-btn">&#xE001;</ButtonNext>
       </CarouselProvider>
     </section>
-  )
-}
+  );
+};
 
-export default Category
+export default Category;
