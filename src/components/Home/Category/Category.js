@@ -38,8 +38,6 @@ const Category = () => {
         visibleSlides={5}
         dragStep={5}
         step={5}
-        isPlaying={true}
-        interval={3000}
       >
         <Slider>
           {categories.map((i, idx) => (

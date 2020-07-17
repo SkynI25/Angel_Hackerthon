@@ -61,3 +61,11 @@ export const getRestaurantsByCategory = async (categoryId) => {
   );
   return data;
 };
+
+// 전체 식당 리스트
+export const getRestaurants = async () => {
+  const { data } = await axios.get(
+    'https://angel-mkit.herokuapp.com/restaurants',
+  );
+  return data;
+};
