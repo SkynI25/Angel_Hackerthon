@@ -1,7 +1,7 @@
 import React from 'react';
 import './Cover.scss';
 
-const Cover = ({ title }) => {
+const Cover = ({ title = '' }) => {
   return (
     <div className="cover-container">
       {/* img */}

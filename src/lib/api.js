@@ -46,6 +46,7 @@ export const userInfo = ({ token }) => {
       .catch((err) => console.error(err));
   });
 };
+
 // 카테고리 리스트
 export const getCategories = async () => {
   const { data } = await axios.get(
@@ -54,7 +55,7 @@ export const getCategories = async () => {
   return data;
 };
 
-// // 카테고리별 식당 리스트
+// 카테고리별 식당 리스트
 export const getRestaurantsByCategory = async (categoryId) => {
   const { data } = await axios.get(
     `https://angel-mkit.herokuapp.com/categories/${categoryId}`,
@@ -66,6 +67,14 @@ export const getRestaurantsByCategory = async (categoryId) => {
 export const getRestaurants = async () => {
   const { data } = await axios.get(
     'https://angel-mkit.herokuapp.com/restaurants',
+  );
+  return data;
+};
+
+// 식당 상세 데이터
+export const getRestaurantData = async (restaurantId) => {
+  const { data } = await axios.get(
+    `https://angel-mkit.herokuapp.com/restaurants/${restaurantId}`,
   );
   return data;
 };

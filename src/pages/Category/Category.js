@@ -3,9 +3,10 @@ import Cover from '../../components/common/Cover/Cover';
 import RestaurantList from '../../components/common/RestaurantList/RestaurantList';
 import { getRestaurantsByCategory } from '../../lib/api';
 
-const Category = ({ match, history }) => {
+const Category = ({ props: { match, history } }) => {
   const [name, setName] = useState('');
   const [list, setList] = useState([]);
+  const [coverImage, setImage] = useState('');
 
   useEffect(() => {
     const categoryId =
@@ -22,8 +23,10 @@ const Category = ({ match, history }) => {
           if (!res.success || !res.data) {
             throw new Error(res.errors);
           }
-          setList(res.data);
-          setName(res.data.category);
+          const { category, categoryImg, restaurants } = res.data;
+          setName(category);
+          setImage(categoryImg);
+          setList(restaurants);
         })
         .catch((err) => console.error(err));
     })();
@@ -31,7 +34,7 @@ const Category = ({ match, history }) => {
 
   return (
     <div>
-      <Cover title={name || '음식'} />
+      <Cover title={name} />
       <RestaurantList list={list} />
     </div>
   );

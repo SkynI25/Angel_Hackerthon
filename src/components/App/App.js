@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { Route, BrowserRouter } from 'react-router-dom';
+import { Route, BrowserRouter, Redirect } from 'react-router-dom';
 import { Home, SignIn, SignUp, Restaurant, Category } from '../../pages';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';

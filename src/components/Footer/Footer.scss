@@ -10,7 +10,23 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
+
+    & > * {
+      padding: 0 0.5rem;
+    }
+
+    a {
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover > * {
+        color: var(--primary);
+      }
+    }
   }
 
   @include mobile {
