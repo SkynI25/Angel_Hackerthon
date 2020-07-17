@@ -33,26 +33,21 @@ const MyPage = () => {
       id: 4,
       orderDate: '2020-07-17 23:59:59',
       img:
-        'https://th4.tmon.kr/thumbs/image/d26/07c/a58/c4aa0a377_700x700_95_FIT.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSuV_wo6oVdNtmTVzMPfpnDKrmjBOBG8R7cSw&usqp=CAU',
       name: '냉면',
       price: '5000',
     },
   ];
   const [orderList, setOrderList] = useState([]);
 
-  /* useEffect(() => {
-    (function () {
-      getOrderList()
-        .then((res) => {
-          if (!res.success || !res.data) {
-            throw new Error(res.errors);
-          }
-          console.log(res.data);
-          setOrderList(res.data);
-        })
-        .catch((err) => console.log(err));
+  useEffect(() => {
+    (async function () {
+      const { token } = JSON.parse(localStorage.getItem('token'));
+      const result = await getOrderList(token);
+      const { data } = result.data;
+      setOrderList(data.orderlist);
     })();
-  }, []); */
+  }, []);
   return (
     <div className="mypage-container">
       <header>
