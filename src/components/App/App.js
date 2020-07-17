@@ -1,33 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import { Route, BrowserRouter } from 'react-router-dom';
 import { Home, SignIn, SignUp, Restaurant, Category } from '../../pages';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import { userInfo } from '../../lib/api';
+
 const App = () => {
+  const user = localStorage.getItem('userInfo');
   const [userData, setUserData] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        // const response = await userInfo(JSON.parse(token));
-        // const { data } = response.data;
-        // setUserData(data);
-      } catch {}
-    };
-    fetchData();
-  }, []);
   return (
     <BrowserRouter>
       <div className="App">
-        <Header />
+        <Header userInfo={user} />
         <main className="main">
           <Route exact path="/" component={Home} />
-          <Route path="/signin" component={SignIn} />
+          <Route
+            path="/signin"
+            render={(props) => (
+              <SignIn props={props} setUserData={setUserData} />
+            )}
+          />
           <Route path="/signup" component={SignUp} />
-          <Route path="/restaurant/:restaurantId" component={Restaurant} />
-          <Route path="/category/:categoryId" component={Category} />
+          <Route
+            path="/restaurant/:restaurantId"
+            render={(props) => <Restaurant props={props} userInfo={user} />}
+          />
+          <Route
+            path="/category/:categoryId"
+            render={(props) => <Category props={props} userInfo={user} />}
+          />
         </main>
         <Footer />
       </div>

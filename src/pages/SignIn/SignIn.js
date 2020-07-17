@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { signinUser } from '../../lib/api';
+import { signinUser, userInfo } from '../../lib/api';
 import './SignIn.scss';
 
-const SignIn = ({ history }) => {
+const SignIn = ({ props, setUserData }) => {
+  const { history } = props;
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,6 +12,12 @@ const SignIn = ({ history }) => {
       evt.preventDefault();
       const { data } = await signinUser({ id, password });
       localStorage.setItem('token', JSON.stringify(data['data']));
+
+      const token = localStorage.getItem('token');
+      const response = await userInfo(JSON.parse(token));
+      const userData = response.data;
+      localStorage.setItem('userInfo', JSON.stringify(userData.data));
+      setUserData(userData.data);
       history.push('/');
     } catch {}
   };

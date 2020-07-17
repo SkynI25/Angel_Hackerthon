@@ -19,11 +19,13 @@
       max-width: 100%;
     }
   }
+
   @include tablet {
     .header-inner {
       max-width: var(--tablet);
     }
   }
+
   @include desktop {
     .header-inner {
       max-width: var(--desktop);
@@ -38,6 +40,7 @@
       li {
         display: inline-block;
         margin-left: 1rem;
+        cursor: pointer;
       }
     }
   }

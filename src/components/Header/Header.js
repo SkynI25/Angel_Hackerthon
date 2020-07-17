@@ -1,8 +1,13 @@
-import React from 'react'
-import './Header.scss'
-import { Link, NavLink } from 'react-router-dom'
+import React from 'react';
+import './Header.scss';
+import { Link, NavLink } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ userInfo }) => {
+  const logOut = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userInfo');
+    window.location.reload(false);
+  };
   return (
     <header className="header">
       <div className="header-inner">
@@ -10,18 +15,24 @@ const Header = () => {
           <Link to="">HOME</Link>
         </span>
         <nav className="gnb">
-          <ul>
-            <li>
-              <NavLink to="/signin">로그인</NavLink>
-            </li>
-            <li>
-              <NavLink to="/signup">회원가입</NavLink>
-            </li>
-          </ul>
+          {userInfo ? (
+            <ul>
+              <li onClick={logOut}>로그아웃</li>
+            </ul>
+          ) : (
+            <ul>
+              <li>
+                <NavLink to="/signin">로그인</NavLink>
+              </li>
+              <li>
+                <NavLink to="/signup">회원가입</NavLink>
+              </li>
+            </ul>
+          )}
         </nav>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
