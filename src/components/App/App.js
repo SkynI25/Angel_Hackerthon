@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import './App.scss';
 import { Route, BrowserRouter } from 'react-router-dom';
-import { Home, SignIn, SignUp, Restaurant, Category } from '../../pages';
+import {
+  Home,
+  SignIn,
+  SignUp,
+  Restaurant,
+  Category,
+  MyPage,
+} from '../../pages';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
@@ -28,6 +35,10 @@ const App = () => {
           <Route
             path="/category/:categoryId"
             render={(props) => <Category props={props} userInfo={user} />}
+          />
+          <Route
+            path="/mypage"
+            render={(props) => <MyPage props={props} userInfo={user} />}
           />
         </main>
         <Footer />

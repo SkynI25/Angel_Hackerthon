@@ -69,3 +69,11 @@ export const getRestaurants = async () => {
   );
   return data;
 };
+
+// 주문 내역 조회
+export const getOrderList = async () => {
+  const { data } = await axios.get(
+    'https://angel-mkit.herokuapp.com/orderlist',
+  );
+  return data;
+};
