@@ -1,7 +1,10 @@
+@import '../../../constants/mixins.scss';
+
 .react-tabs__tab-list {
   border-bottom: 1px solid var(--border-color);
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 1.5rem;
 }
 
 .react-tabs__tab {
@@ -15,4 +18,38 @@
   font-weight: bold;
   border: 1px solid transparent;
   border-bottom: 3px solid var(--text-color);
+}
+
+.ReactModal__Overlay {
+  z-index: 100;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(200, 200, 200, 0.3);
+}
+
+.ReactModal__Content {
+  @include mobile {
+    & {
+      top: 1rem !important;
+      left: 1rem !important;
+      right: 1rem !important;
+      bottom: 1rem !important;
+    }
+  }
+  @include tablet {
+    & {
+      top: 10% !important;
+      left: 15% !important;
+      right: 15% !important;
+      bottom: 10% !important;
+    }
+  }
+  @include desktop {
+    & {
+      top: 15% !important;
+      left: 20% !important;
+      right: 20% !important;
+      bottom: 15% !important;
+    }
+  }
 }

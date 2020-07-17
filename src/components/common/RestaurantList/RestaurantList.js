@@ -22,11 +22,11 @@ const RestaurantList = ({ title, list }) => {
                 <p className="title">{item.name}</p>
                 <p className="description">{item.description}</p>
                 <p>
-                  <span class="star">
+                  <span className="star">
                     <AiFillStar />
                     4.{Math.floor(Math.random() * 10) % 10}
                   </span>
-                  <span class="review">{`(${
+                  <span className="review">{`(${
                     Math.floor(Math.random() * 900) + 10
                   })`}</span>
                 </p>

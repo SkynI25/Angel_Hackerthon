@@ -10,7 +10,7 @@ const Cover = ({ title }) => {
       {/* title */}
       {title && (
         <div className="title">
-          <h2>{title}번째 카테고리</h2>
+          <h2>{title}</h2>
         </div>
       )}
     </div>

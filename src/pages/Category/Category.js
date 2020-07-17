@@ -4,6 +4,7 @@ import RestaurantList from '../../components/common/RestaurantList/RestaurantLis
 import { getRestaurantsByCategory } from '../../lib/api';
 
 const Category = ({ match, history }) => {
+  const [name, setName] = useState('');
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -22,6 +23,7 @@ const Category = ({ match, history }) => {
             throw new Error(res.errors);
           }
           setList(res.data);
+          setName(res.data.category);
         })
         .catch((err) => console.error(err));
     })();
@@ -29,7 +31,7 @@ const Category = ({ match, history }) => {
 
   return (
     <div>
-      <Cover title={'hi~'} />
+      <Cover title={name || '음식'} />
       <RestaurantList list={list} />
     </div>
   );
