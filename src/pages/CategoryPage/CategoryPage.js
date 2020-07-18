@@ -3,7 +3,7 @@ import Cover from '../../components/common/Cover/Cover';
 import RestaurantList from '../../components/common/RestaurantList/RestaurantList';
 import { getRestaurantsByCategory } from '../../lib/api';
 
-const Category = ({ props: { match, history } }) => {
+const CategoryPage = ({ props: { match, history } }) => {
   const [name, setName] = useState('');
   const [list, setList] = useState([]);
   const [coverImage, setImage] = useState('');
@@ -30,14 +30,14 @@ const Category = ({ props: { match, history } }) => {
         })
         .catch((err) => console.error(err));
     })();
-  }, []);
+  }, [match, history]);
 
   return (
     <div>
-      <Cover title={name} />
+      <Cover title={name} coverImage={coverImage} />
       <RestaurantList list={list} />
     </div>
   );
 };
 
-export default Category;
+export default CategoryPage;

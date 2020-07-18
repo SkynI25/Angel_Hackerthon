@@ -34,7 +34,7 @@ const Category = () => {
         naturalSlideWidth={200}
         naturalSlideHeight={100}
         orientation="horizontal"
-        totalSlides={9}
+        totalSlides={10}
         visibleSlides={5}
         dragStep={5}
         step={5}

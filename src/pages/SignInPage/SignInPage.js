@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { signinUser, userInfo } from '../../lib/api';
-import './SignIn.scss';
+import './SignInPage.scss';
 
-const SignIn = ({ props, setUserData }) => {
+const SignInPage = ({ props, setUserData }) => {
   const { history } = props;
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
@@ -47,4 +47,4 @@ const SignIn = ({ props, setUserData }) => {
   );
 };
 
-export default SignIn;
+export default SignInPage;
