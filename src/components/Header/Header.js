@@ -1,6 +1,7 @@
 import React from 'react';
 import './Header.scss';
 import { Link, NavLink } from 'react-router-dom';
+import Logo from '../../assets/logo.png';
 
 const Header = ({ userInfo }) => {
   const logOut = () => {
@@ -12,7 +13,9 @@ const Header = ({ userInfo }) => {
     <header className="header">
       <div className="header-inner">
         <span>
-          <Link to="">HOME</Link>
+          <Link to="/">
+            <img src={Logo} alt="반짝식당" />
+          </Link>
         </span>
         <nav className="gnb">
           {userInfo ? (

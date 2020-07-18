@@ -1,5 +1,10 @@
 @import '../../../constants/mixins.scss';
 
+.delivery-info {
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+}
+
 .react-tabs__tab-list {
   border-bottom: 1px solid var(--border-color);
   display: flex;
@@ -24,10 +29,15 @@
   z-index: 100;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  background-color: rgba(200, 200, 200, 0.3);
+  background-color: rgba(200, 200, 200, 0.3) !important;
 }
 
 .ReactModal__Content {
+  text-align: center;
+  padding: 1rem !important;
+  display: flex;
+  flex-direction: column;
+
   @include mobile {
     & {
       top: 1rem !important;
@@ -38,6 +48,7 @@
   }
   @include tablet {
     & {
+      min-width: 550px;
       top: 10% !important;
       left: 15% !important;
       right: 15% !important;
@@ -46,10 +57,90 @@
   }
   @include desktop {
     & {
-      top: 15% !important;
-      left: 20% !important;
-      right: 20% !important;
-      bottom: 15% !important;
+      min-width: 550px;
+      top: 10% !important;
+      left: 30% !important;
+      right: 30% !important;
+      bottom: 10% !important;
+    }
+  }
+
+  .modal-title {
+    padding: 1rem !important;
+    font-size: 2rem;
+    border-bottom: 1px solid var(--border-dark-color);
+    margin-bottom: 1rem;
+
+    span {
+      font-size: 1rem;
+      padding-left: 1rem;
+      color: var(--shade-5);
+    }
+  }
+
+  .modal-close {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.25rem;
+    top: 2rem;
+    right: 2rem;
+    width: 3rem;
+    height: 3rem;
+    outline: 0;
+    border: 0;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--bg-color);
+    }
+  }
+
+  .modal-content {
+    flex: 1;
+    margin-bottom: 1rem;
+
+    .img {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 1rem;
+
+      img {
+        @include mobile {
+          & {
+            width: 100%;
+          }
+        }
+        @include tablet {
+          & {
+            width: 70%;
+          }
+        }
+        @include desktop {
+          & {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .modal-btn {
+    background-color: var(--primary);
+    border-radius: 0.25rem;
+    line-height: 4rem;
+    font-size: 1.125rem;
+    cursor: pointer;
+    color: var(--shade-0);
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--primary-dark);
     }
   }
 }

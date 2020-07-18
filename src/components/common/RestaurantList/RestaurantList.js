@@ -16,7 +16,7 @@ const RestaurantList = ({ title, list }) => {
               className="item-container"
             >
               <div className="img">
-                <img src={item.img} />
+                <img src={item.img} alt={item.name} />
               </div>
               <div>
                 <p className="title">{item.name}</p>

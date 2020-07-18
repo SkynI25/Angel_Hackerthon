@@ -2,12 +2,12 @@ import React from 'react';
 import './Card.scss';
 import { AiFillStar } from 'react-icons/ai';
 
-const Card = () => {
+const Card = ({ restaurant: { name = '', description = '' } }) => {
   return (
     <div className="card-container">
       <div className="card">
-        <h1>지역명 가게이름</h1>
-        <p>"탱글탱글 찜닭과 부추의 조화"</p>
+        <h1>{name}</h1>
+        <p>{`"${description}"`}</p>
         <div className="info">
           <span className="star">
             <AiFillStar />

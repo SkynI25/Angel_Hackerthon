@@ -1,11 +1,15 @@
 import React from 'react';
 import './Cover.scss';
 
-const Cover = ({ title }) => {
+const Cover = ({ title = '', coverImage }) => {
+  const bg = coverImage
+    ? { background: `center / cover no-repeat url('${coverImage}')` }
+    : {};
+
   return (
     <div className="cover-container">
       {/* img */}
-      <div className="img"></div>
+      <div className="img" style={bg}></div>
 
       {/* title */}
       {title && (

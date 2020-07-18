@@ -1,6 +1,6 @@
 import React, { useReducer, useState, useEffect, useCallback } from 'react';
 import { signupUser } from '../../lib/api';
-import './SignUp.scss';
+import './SignUpPage.scss';
 
 function reducer(state, action) {
   return {
@@ -19,7 +19,7 @@ function stateCheck(state) {
   return idxArr;
 }
 
-const SignUp = ({ history }) => {
+const SignUpPage = ({ history }) => {
   const [state, dispatch] = useReducer(reducer, {
     id: '',
     nickName: '',
@@ -53,7 +53,7 @@ const SignUp = ({ history }) => {
     } else {
       setShowPwdErr(true);
     }
-  }, [passwordConfirm]);
+  }, [password, passwordConfirm]);
 
   const handleSumbit = useCallback(
     async (evt) => {
@@ -210,4 +210,4 @@ const SignUp = ({ history }) => {
   );
 };
 
-export default SignUp;
+export default SignUpPage;
