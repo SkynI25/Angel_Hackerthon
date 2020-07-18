@@ -20,6 +20,9 @@ const Header = ({ userInfo }) => {
         <nav className="gnb">
           {userInfo ? (
             <ul>
+              <li>
+                <NavLink to="/mypage">마이페이지</NavLink>
+              </li>
               <li onClick={logOut}>로그아웃</li>
             </ul>
           ) : (

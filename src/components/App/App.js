@@ -8,6 +8,7 @@ import {
   RestaurantPage,
   CategoryPage,
   OrderPage,
+  MyPage,
 } from '../../pages';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -45,6 +46,10 @@ const App = () => {
             <Route
               path="/order"
               render={(props) => <OrderPage props={props} userInfo={user} />}
+            />
+            <Route
+              path="/mypage"
+              render={(props) => <MyPage props={props} userInfo={user} />}
             />
           </main>
           <Footer />

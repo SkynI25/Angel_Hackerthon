@@ -1,0 +1,71 @@
+@import '../../constants/mixins.scss';
+
+
+.mypage-container {
+    width: 100%;
+
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        background-color: #E75859;
+        padding: 70px 0;
+        padding-left: 30px;
+
+        h3 {
+            margin-top: 10px;
+        }
+    }
+
+    section {
+        padding: 20px 0;
+        padding-left: 30px;
+
+        .title {
+            color: #494848;
+            font-weight: 600;
+        }
+
+        .history {
+            color: #494848;
+            height: 500px;
+            overflow-y: scroll;
+
+            .item {
+                display: flex;
+                margin-top: 20px;
+
+                img {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 15px;
+                }
+
+                .column {
+                    margin-left: 40px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+
+                    .date {
+                        display: block;
+                    }
+
+                    .storeName {
+                        display: block;
+                    }
+
+                    .menu {
+                        display: block;
+                    }
+
+                    .price {
+                        display: block;
+                    }
+                }
+
+            }
+        }
+    }
+}

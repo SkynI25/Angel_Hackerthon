@@ -80,6 +80,7 @@ export const getRestaurantData = async (restaurantId) => {
   return data;
 };
 
+// 음식 주문
 export const orderItems = async (token, itemList = []) => {
   const params = new URLSearchParams();
   params.append('itemList', JSON.stringify(itemList));
@@ -96,3 +97,15 @@ export const orderItems = async (token, itemList = []) => {
   );
   return data;
 };
+
+// 주문 조회
+export const getOrderList = async (token) => {
+  instance.defaults.headers.common['token'] = token;
+  return new Promise((res, rej) => {
+    instance
+      .get('/orderlist')
+      .then((data) => res(data))
+      .catch((err) => console.error(err));
+  });
+};
+
