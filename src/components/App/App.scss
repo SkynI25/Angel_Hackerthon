@@ -129,13 +129,12 @@ a {
 .btn-outline {
   background: var(--primary);
   border: 1px solid var(--primary);
-  color: var(--text-color);
+  color: var(--shade-0);
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   appearance: none;
   outline: 0;
-  color: var(--shade-2);
-  font-size: var(--font-md);
+  font-size: 1rem;
   transition: all 0.25s ease;
   cursor: pointer;
 

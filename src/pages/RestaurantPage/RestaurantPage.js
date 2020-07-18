@@ -90,7 +90,7 @@ const RestaurantPage = ({ props: { match, history } }) => {
 
   return (
     <section className="restaurant-container">
-      <Cover />
+      <Cover coverImage={restaurant.img} />
       <Card restaurant={restaurant} />
       <InfoTabs restaurant={restaurant} addItem={addItem} />
       <CartButton cart={cart} handleCartBtnClick={handleCartBtnClick} />

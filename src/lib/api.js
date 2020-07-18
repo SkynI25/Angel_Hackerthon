@@ -1,4 +1,5 @@
 import axios from 'axios';
+import qs from 'querystring';
 
 const instance = axios.create({
   baseURL: 'https://angel-mkit.herokuapp.com',
@@ -75,6 +76,23 @@ export const getRestaurants = async () => {
 export const getRestaurantData = async (restaurantId) => {
   const { data } = await axios.get(
     `https://angel-mkit.herokuapp.com/restaurants/${restaurantId}`,
+  );
+  return data;
+};
+
+export const orderItems = async (token, itemList = []) => {
+  const params = new URLSearchParams();
+  params.append('itemList', JSON.stringify(itemList));
+
+  const { data } = await axios.post(
+    `https://angel-mkit.herokuapp.com/orderlist`,
+    params,
+    {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        token: token,
+      },
+    },
   );
   return data;
 };
