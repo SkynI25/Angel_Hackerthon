@@ -2,9 +2,10 @@ import React, { useEffect, useState, useContext } from 'react';
 import Cover from '../../components/common/Cover/Cover';
 import Card from '../../components/Restaurant/Card/Card';
 import InfoTabs from '../../components/Restaurant/InfoTabs/InfoTabs';
-import { getRestaurantData } from '../../lib/api';
+import OpenRequest from '../../components/Restaurant/OpenRequest/OpenRequest';
 import CartButton from '../../components/Restaurant/CartButton/CartButton';
 import CartModal from '../../components/Restaurant/CartModal/CartModal';
+import { getRestaurantData } from '../../lib/api';
 import { CartContext } from '../../CartContext/CartContext';
 
 const RestaurantPage = ({ props: { match, history } }) => {
@@ -90,18 +91,24 @@ const RestaurantPage = ({ props: { match, history } }) => {
 
   return (
     <section className="restaurant-container">
-      <Cover coverImage={restaurant.img} />
+      <Cover coverImage={restaurant.foodImg} />
       <Card restaurant={restaurant} />
-      <InfoTabs restaurant={restaurant} addItem={addItem} />
-      <CartButton cart={cart} handleCartBtnClick={handleCartBtnClick} />
-      <CartModal
-        cart={cart}
-        modalIsOpen={modalIsOpen}
-        setIsOpen={setIsOpen}
-        deleteItem={deleteItem}
-        changeCount={changeCount}
-        history={history}
-      />
+      {restaurant.isOpen === 1 ? (
+        <React.Fragment>
+          <InfoTabs restaurant={restaurant} addItem={addItem} />
+          <CartButton cart={cart} handleCartBtnClick={handleCartBtnClick} />
+          <CartModal
+            cart={cart}
+            modalIsOpen={modalIsOpen}
+            setIsOpen={setIsOpen}
+            deleteItem={deleteItem}
+            changeCount={changeCount}
+            history={history}
+          />
+        </React.Fragment>
+      ) : (
+        <OpenRequest restaurant={restaurant} />
+      )}
     </section>
   );
 };

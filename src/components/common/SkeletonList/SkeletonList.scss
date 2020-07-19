@@ -1,6 +1,6 @@
 @import '../../../constants/mixins.scss';
 
-.restaurant-list-container {
+.skeleton-list-container {
   margin-bottom: 4rem;
 
   h2 {
@@ -25,7 +25,6 @@
       width: 50%;
       padding: 2rem 0.5rem;
       border-bottom: 1px solid var(--border-color);
-      cursor: pointer;
 
       @include tablet {
         & {
@@ -45,41 +44,26 @@
         overflow: hidden;
         border-radius: 0.25rem;
         border-color: var(--border-color);
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
+        background-color: var(--border-color);
       }
 
       .info {
         flex: 1;
-        word-break: keep-all;
       }
 
       .title {
-        font-size: 1.4rem;
-        font-weight: bold;
-      }
-      .description {
-        font-size: var(--font-md);
-        color: var(--shade-5);
+        width: 40%;
+        height: 1.4rem;
+        background-color: var(--border-color);
+        border-radius: 0.25rem;
         margin-bottom: 0.3rem;
       }
-      .like {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: 0.25rem;
-        &,
-        * {
-          color: var(--primary);
-        }
-        span {
-          padding-left: 0.2rem;
-          padding-bottom: 2px;
-        }
+      .description {
+        width: 50%;
+        height: 1rem;
+        background-color: var(--border-color);
+        border-radius: 0.25rem;
+        margin-bottom: 0.3rem;
       }
     }
   }

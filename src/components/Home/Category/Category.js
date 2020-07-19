@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import { getCategories } from '../../../lib/api';
 
 const Category = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -22,6 +23,7 @@ const Category = () => {
             throw new Error(res.errors);
           }
           setCategories(res.data);
+          setIsLoading(false);
         })
         .catch((err) => console.log(err));
     })();
@@ -35,24 +37,36 @@ const Category = () => {
         naturalSlideWidth={200}
         naturalSlideHeight={100}
         orientation="horizontal"
-        totalSlides={10}
+        totalSlides={9}
         visibleSlides={5}
         dragStep={5}
         step={5}
+        isPlaying={true}
+        delay={5000}
       >
         <Slider>
-          {categories.map((i, idx) => (
-            <Slide tabIndex={idx} key={i.id}>
-              <div className="category-item">
-                <Link className="link" to={`/category/${i.id}`}>
-                  <div className="img">
-                    <img src={i.img} alt={i.category} />
+          {isLoading
+            ? Array(9)
+                .fill(null)
+                .map((i, idx) => (
+                  <Slide tabIndex={idx} key={idx}>
+                    <div className="category-item">
+                      <div className="link skeleton"></div>
+                    </div>
+                  </Slide>
+                ))
+            : categories.map((i, idx) => (
+                <Slide tabIndex={idx} key={i.id}>
+                  <div className="category-item">
+                    <Link className="link" to={`/category/${i.id}`}>
+                      <div className="img">
+                        <img src={i.img} alt={i.category} />
+                      </div>
+                      <span>{i.category}</span>
+                    </Link>
                   </div>
-                  <span>{i.category}</span>
-                </Link>
-              </div>
-            </Slide>
-          ))}
+                </Slide>
+              ))}
         </Slider>
         <ButtonBack className="back-btn">&#xE000;</ButtonBack>
         <ButtonNext className="next-btn">&#xE001;</ButtonNext>

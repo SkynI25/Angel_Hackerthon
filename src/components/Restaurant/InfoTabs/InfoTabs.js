@@ -48,7 +48,7 @@ const InfoTabs = ({
                     <div className="img">
                       <img src={item.img} alt={item.name} />
                     </div>
-                    <div>
+                    <div className="info">
                       <p className="title">{item.name}</p>
                       <p className="description">
                         {new Intl.NumberFormat('ko-KR', {

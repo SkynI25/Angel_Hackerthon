@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Cover from '../../components/common/Cover/Cover';
 import RestaurantList from '../../components/common/RestaurantList/RestaurantList';
+import SkeletonList from '../../components/common/SkeletonList/SkeletonList';
 import { getRestaurantsByCategory } from '../../lib/api';
 
 const CategoryPage = ({ props: { match, history } }) => {
   const [name, setName] = useState('');
   const [list, setList] = useState([]);
   const [coverImage, setImage] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const categoryId =
@@ -28,14 +30,15 @@ const CategoryPage = ({ props: { match, history } }) => {
           setImage(categoryImg);
           setList(restaurants);
         })
-        .catch((err) => console.error(err));
+        .catch((err) => console.error(err))
+        .finally(() => setIsLoading(false));
     })();
   }, [match, history]);
 
   return (
     <div>
-      <Cover title={name} coverImage={coverImage} />
-      <RestaurantList list={list} />
+      <Cover title={isLoading ? ' ' : name} coverImage={coverImage} />
+      {isLoading ? <SkeletonList /> : <RestaurantList list={list} />}
     </div>
   );
 };
