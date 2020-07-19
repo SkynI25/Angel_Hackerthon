@@ -37,3 +37,13 @@ API Docs: https://github.com/yumjuice/angel/wiki/API<br/>
 - 장바구니
 - 관심 목록 추가
 - 결제 화면
+
+## React Boilerplate
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [craco](https://github.com/gsoft-inc/craco).
+
+## Used Library from NPM
+
+- Pure Carousel Slider : [Pure-react-carousel](https://www.npmjs.com/package/pure-react-carousel)
+- HTTP client: [Axios](https://www.npmjs.com/package/axios)
+- Syntactically Awesome Style Sheets: [Sass](https://www.npmjs.com/package/node-sass)
