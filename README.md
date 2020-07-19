@@ -33,6 +33,7 @@ API Docs: https://github.com/yumjuice/angel/wiki/API<br/>
 ### Shopping(주문)
 
 - 지역별 카테고리
+- 가게 상세 페이지
 - 장바구니
 - 관심 목록 추가
 - 결제 화면
