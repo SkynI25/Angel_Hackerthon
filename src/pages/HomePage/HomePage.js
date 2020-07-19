@@ -15,7 +15,7 @@ const HomePage = () => {
       getRestaurants()
         .then((res) => {
           if (!res.success || !res.data) {
-            throw new Error(res.errors);
+            throw res.errors;
           }
           setList(res.data);
         })
