@@ -25,7 +25,7 @@ const HomePage = () => {
     <section className="home-container">
       <Banner />
       <Category />
-      <RestaurantList title="요즘 핫한 추천 맛집" list={list} />
+      <RestaurantList title="지금 배달 가능한 지역맛집" list={list} />
     </section>
   );
 };

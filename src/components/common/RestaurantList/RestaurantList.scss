@@ -4,7 +4,9 @@
   margin-bottom: 4rem;
 
   h2 {
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
   }
 
   .list {
@@ -21,10 +23,7 @@
       display: inline-flex;
       flex-direction: row;
       width: 50%;
-      height: 175px;
-      padding-bottom: 1rem;
-      margin-bottom: 1rem;
-      padding: 0 0.5rem;
+      padding: 2rem 0.5rem;
       border-bottom: 1px solid var(--border-color);
       cursor: pointer;
 
@@ -55,7 +54,7 @@
       }
 
       .title {
-        font-size: var(--font-lg);
+        font-size: 1.4rem;
         font-weight: bold;
       }
       .description {
@@ -63,7 +62,7 @@
         color: var(--shade-5);
         margin-bottom: 0.3rem;
       }
-      .star {
+      .like {
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -72,12 +71,10 @@
         * {
           color: var(--primary);
         }
-      }
-      .review {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        color: var(--shade-4);
+        span {
+          padding-left: 0.2rem;
+          padding-bottom: 2px;
+        }
       }
     }
   }
