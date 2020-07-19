@@ -30,7 +30,7 @@ API Docs: https://github.com/yumjuice/angel/wiki/API<br/>
 - 회원가입
 - 마이페이지
 
-### Shopping(주문)
+### Shopping(맛집 검색 및 주문)
 
 - 지역별 카테고리
 - 가게 상세 페이지
