@@ -1,19 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Card.scss';
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillHeart } from 'react-icons/ai';
+import { like } from '../../../lib/api';
 
-const Card = ({ restaurant: { name = '', description = '' } }) => {
+const Card = ({ restaurant: { id, name = '', description = '', likeNum } }) => {
+  const [isLiked, setIsLiked] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const handleLike = () => {
+    if (isLiked) {
+      return;
+    }
+    setIsLiked(true);
+    like(id)
+      .then(() => setIsSuccess(true))
+      .catch((err) => alert(err));
+  };
+
   return (
     <div className="card-container">
       <div className="card">
         <h1>{name}</h1>
         <p>{`"${description}"`}</p>
         <div className="info">
-          <span className="star">
-            <AiFillStar />
-            4.7
+          <span className="like" onClick={handleLike}>
+            <AiFillHeart />
+            <span>{isSuccess ? likeNum + 1 : likeNum}</span>
           </span>
-          <span className="review">리뷰 999개</span>
         </div>
       </div>
     </div>

@@ -7,7 +7,10 @@ import { MdClose } from 'react-icons/md';
 
 Modal.setAppElement('#root');
 
-const InfoTabs = ({ restaurant: { items }, addItem }) => {
+const InfoTabs = ({
+  restaurant: { items, name, phone, address, img, detailDescription },
+  addItem,
+}) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({});
 
@@ -60,7 +63,14 @@ const InfoTabs = ({ restaurant: { items }, addItem }) => {
           </div>
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <div className="restaurant-info-container">
+            <div className="img">
+              <img src={img} alt={name} />
+            </div>
+            <p>전화번호 : {phone}</p>
+            <p>주소 : {address}</p>
+            <p>{detailDescription}</p>
+          </div>
         </TabPanel>
       </Tabs>
 

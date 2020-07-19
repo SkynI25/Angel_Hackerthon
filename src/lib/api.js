@@ -101,11 +101,28 @@ export const orderItems = async (token, itemList = []) => {
 // 주문 조회
 export const getOrderList = async (token) => {
   instance.defaults.headers.common['token'] = token;
-  return new Promise((res, rej) => {
-    instance
-      .get('/orderlist')
-      .then((data) => res(data))
-      .catch((err) => console.error(err));
-  });
+  const {
+    data: { data },
+  } = await instance.get('/orderlist');
+  return data;
 };
 
+// 좋아요
+export const like = async (restaurantId) => {
+  const tokenObj = localStorage.getItem('token');
+  console.log(tokenObj);
+  if (!tokenObj) {
+    throw '로그인 해주세용';
+  }
+  const { token } = JSON.parse(tokenObj);
+  console.log(token);
+
+  const { data } = await instance.patch(
+    `restaurants/${restaurantId}/likenum`,
+    {},
+    {
+      headers: { token },
+    },
+  );
+  return data;
+};

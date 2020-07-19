@@ -144,3 +144,25 @@
     }
   }
 }
+
+.restaurant-info-container {
+  margin-bottom: 4rem;
+
+  @include mobile {
+    & {
+      padding: 0 1rem;
+    }
+  }
+
+  .img {
+    width: 100%;
+    margin: 1rem auto;
+    max-width: 600px;
+    img {
+      width: 100%;
+    }
+  }
+  p {
+    padding: 0.5rem 0;
+  }
+}

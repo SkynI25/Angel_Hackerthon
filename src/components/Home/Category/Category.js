@@ -29,7 +29,8 @@ const Category = () => {
 
   return (
     <section className="category-container">
-      <h2>어떤 메뉴를 찾으시나요?</h2>
+      <span className="bg"></span>
+      <h2>어느 지역의 맛집을 만나볼까요?</h2>
       <CarouselProvider
         naturalSlideWidth={200}
         naturalSlideHeight={100}

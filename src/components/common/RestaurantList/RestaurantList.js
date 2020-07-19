@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './RestaurantList.scss';
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillHeart } from 'react-icons/ai';
 
 const RestaurantList = ({ title, list }) => {
   return (
@@ -16,19 +16,15 @@ const RestaurantList = ({ title, list }) => {
               className="item-container"
             >
               <div className="img">
-                <img src={item.img} alt={item.name} />
+                <img src={item.foodImg} alt={item.name} />
               </div>
               <div>
                 <p className="title">{item.name}</p>
                 <p className="description">{item.description}</p>
                 <p>
-                  <span className="star">
-                    <AiFillStar />
-                    4.{Math.floor(Math.random() * 10) % 10}
+                  <span className="like">
+                    <AiFillHeart /> <span>{item.likeNum}</span>
                   </span>
-                  <span className="review">{`(${
-                    Math.floor(Math.random() * 900) + 10
-                  })`}</span>
                 </p>
               </div>
             </Link>
