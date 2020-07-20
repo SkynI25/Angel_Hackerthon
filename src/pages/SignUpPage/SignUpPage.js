@@ -95,41 +95,6 @@ const SignUpPage = ({ history }) => {
     },
     [id, nickName, password, passwordConfirm, phone, address],
   );
-
-  // const handleSumbit = async (evt) => {
-  //   try {
-  //     evt.preventDefault();
-  //     const idxArr = stateCheck(state);
-  //     console.log(idxArr);
-  //     if (showPwdErr && idxArr.length === 0) {
-  //       setIdEmpty(false);
-  //       setPasswordEmpty(false);
-  //       setPasswordConfirmEmpty(false);
-  //       setPhoneEmpty(false);
-  //       setAddressEmpty(false);
-  //       // await signupUser({ id, password, phone, address });
-  //       // history.push('/signin');
-  //     } else {
-  //       idxArr.forEach((idx) => {
-  //         if (idx === 0) {
-  //           setIdEmpty(true);
-  //         }
-  //         if (idx === 1) {
-  //           setPasswordEmpty(true);
-  //         }
-  //         if (idx === 2) {
-  //           setPasswordConfirmEmpty(true);
-  //         }
-  //         if (idx === 3) {
-  //           setPhoneEmpty(true);
-  //         }
-  //         if (idx === 4) {
-  //           setAddressEmpty(true);
-  //         }
-  //       });
-  //     }
-  //   } catch {}
-  // };
   return (
     <div className="signup-container">
       <form onSubmit={handleSumbit}>
